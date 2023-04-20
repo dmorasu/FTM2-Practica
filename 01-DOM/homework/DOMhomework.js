@@ -35,6 +35,9 @@ function ToDo (description) {
 // Debe setear el atributo 'complete' del ToDo en true
 
 // Tu código acá:
+ToDo.prototype.completeToDo=function(){
+  this.complete=true;
+}
 
 
 
@@ -61,8 +64,18 @@ function buildToDo(todo, index) {
   // Tu código acá:
   var toDoShell = document.createElement("div") // ?Crear un elemento Html en este caso un DIV
   toDoShell.className="toDoShell"; // !Asingamos la clase toDoShell al elemento Div creado anteriormente.
-  var  toDoText = document.createElement("span");
-  toDoText.innerHTML=todo;
+  var  toDoText = document.createElement("span"); //? Agregamos un etiqueta span en la variable todoText
+  toDoText.innerHTML=todo.description;//?Mostramos el valor en la tiqueta span con el valor de todo.complete
+  toDoText.setAttribute('id',index); //?le asignamos el atributo id, con el valor que tiene la variable index
+  toDoText.addEventListener("click",completeToDo)
+  if(todo.complete){ //! Validamos que el valor de todo.complete sea true para asingarle la clase
+    toDoText.className="completeText"; //? De cumplirse se le asigna la clase complete Text a  todoText.
+
+  }
+  toDoShell.appendChild(toDoText);
+  return toDoShell;
+
+  
   
 
 }
@@ -74,6 +87,13 @@ function buildToDo(todo, index) {
 
 function buildToDos(toDos) {
   // Tu código acá:
+  //! el mtodo map sirve para recorrer los elementos de un array y retornar un elemento nuevo para cada uno
+  // !MAP me retorna un array Nuevo
+  var toDoShells=toDos.map(buildToDo);
+  return toDoShells;
+
+  
+  
 }
 
 // La función 'displayToDos' se va a encargar de que se vean los toDo's en pantalla
@@ -87,6 +107,18 @@ function buildToDos(toDos) {
 
 function displayToDos() {
   // Tu código acá:
+  var toDoContainer= document.querySelector('#toDoContainer');
+  toDoContainer.innerHTML ="";
+  var toDoShells = buildToDos(toDoItems);
+  toDoShells.forEach(function(toDoShell) {
+    toDoContainer.appendChild(toDoShell);
+
+    
+  });
+
+  
+
+
 }
 
 // La función 'addToDo' agregará un nuevo ToDo al array 'toDoItems'
@@ -100,6 +132,12 @@ function displayToDos() {
 
 function addToDo() {
   // Tu código acá:
+  var toDoInput=document.querySelector('#toDoInput')
+  var nuevoTodo =new ToDo(toDoInput.value);
+  toDoItems.push(nuevoTodo);
+  toDoInput.value="";
+  displayToDos();
+
  
 }
 
@@ -109,6 +147,9 @@ function addToDo() {
 //   2) Agregarle un 'click' event listener, pasándole la función 'addToDo' como callback
 
 // Tu código acá:
+var addButton=document.querySelector('#addButton');
+addButton.addEventListener("click",addToDo)
+
 
 
 
@@ -126,8 +167,12 @@ function addToDo() {
 
 function completeToDo(event) {
   // DESCOMENTAR LA SIGUIENTE LINEA
-  //const index = event.target.id;
+  const index = event.target.id;
   // Tu código acá:
+  toDoItems[index].completeToDo();
+  displayToDos();
+
+
   
 }
 
@@ -148,7 +193,7 @@ function completeToDo(event) {
 
 
 // Acá debes insertar la llamada a 'displayToDos'
-
+displayToDos();
 
 // ---------------------------- NO CAMBIES NADA DE ACÁ PARA ABAJO ----------------------------- //
 if (typeof module !== 'undefined') {
