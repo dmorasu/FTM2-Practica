@@ -1,0 +1,5 @@
+Framework: Es el conjunto de caja de herramientas que nos ayuda a utilizar de mejor manera libre y rapida las tecnologias de desarrollo.
+            como por ejemplo Boostrap --> CSS o Vue para JS
+Preprocesador: Herramienta que nos permite utilizar logica y conceptos de logica para programar y pasar a un lengguaje <i class="fa fa-picture-o" aria-hidden="true"></i> 
+Responsive Website: Es la tecnologia utilizada para adaptar las paginas, sitios o aplicaciones web a cualquier tamaño de pantalla.  Mejorando la experiencia de Usuario y convirtiendola mas amigable.
+           
