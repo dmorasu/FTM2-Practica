@@ -145,6 +145,9 @@ h5 {
   font-family: 'Russo One', sans-serif;
   color: #23293B;
 }
+h1 {
+  font-size: 3rem;
+}
 h2 {
   font-size: 3.2rem;
 }
@@ -167,7 +170,6 @@ nav {
 nav ul {
   list-style: none;
   display: inline-block;
-  padding: 18px;
 }
 nav ul li {
   float: left;
@@ -177,7 +179,6 @@ nav ul li {
 }
 h1 {
   text-align: center;
-  font-size: large;
 }
 footer {
   color: #22283B;
@@ -206,6 +207,29 @@ footer {
   border-radius: 20px;
   height: 100%;
 }
+@media screen and (max-width: 500px) {
+  .home .music-images .auricular {
+    width: 90%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .home .music-images .ondas,
+  .home .music-images .tecnologia {
+    display: none;
+  }
+}
+.home .imgHeader {
+  display: flex;
+  border-radius: 20px;
+  width: auto;
+}
+@media screen and (max-width: 500px) {
+  .home .imgHeader {
+    width: 100%;
+    margin-top: 0.5em;
+    border-radius: 15px;
+  }
+}
 .home .musica-nueva {
   padding: 15px;
 }
@@ -231,6 +255,14 @@ footer {
 .home .actual .actual-text p {
   margin-bottom: 26px;
 }
+.home .actual .actual-text .btn {
+  background-color: #22283A;
+  color: #F6F6F6;
+  width: fit-content;
+  height: fit-content;
+  padding: 1em;
+  border-radius: 20px;
+}
 .home .actual .actual-img {
   width: 46%;
   margin-left: 4%;
@@ -238,5 +270,21 @@ footer {
 .home .actual .actual-img img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 30px;
+}
+@media screen and (max-width: 500px) {
+  .home .actual {
+    flex-direction: column-reverse;
+    padding: 0px;
+  }
+  .home .actual .actual-img {
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+  }
+  .home .actual .actual-text {
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+  }
 }
